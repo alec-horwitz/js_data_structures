@@ -32,16 +32,14 @@ const Node = (function Node() {
     }
 
     static validAddresses (arry) {
-      for (let i = 0; i < arry.length; i++) {
-        if (parseInt(arry[i]) !== NaN) {
-          valid.push(arry[i])
-        } else {
+      for (let el of arry) {
+        if (typeof el === "string") {
           return -1
         }
       }
       return arry
     }
-
+    
     destroy () {
       const address = Node.findTheIndex(hardDisk, this)
       if (address === -1) {
