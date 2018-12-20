@@ -32,7 +32,6 @@ const Node = (function Node() {
     }
 
     static validAddresses (arry) {
-      var valid = []
       for (let i = 0; i < arry.length; i++) {
         if (parseInt(arry[i]) !== NaN) {
           valid.push(arry[i])
@@ -40,7 +39,7 @@ const Node = (function Node() {
           return -1
         }
       }
-      return valid
+      return arry
     }
 
     destroy () {
