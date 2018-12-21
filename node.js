@@ -37,7 +37,7 @@ const Node = (function Node() {
           return -1
         }
       }
-      return arry
+      return valid
     }
     
     destroy () {
