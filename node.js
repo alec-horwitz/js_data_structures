@@ -1,9 +1,50 @@
 const Node = (function Node() {
+
+// PRIVATE:
+
   const diskSize = 250
   const hardDisk = (new Array(diskSize)).fill(null)
+
+  const findSpace = () => {
+    for (let i = 0; i < hardDisk.length; i++){
+      if (hardDisk[i] === null){
+        return i
+      }
+    }
+    return -1
+  }
+
+  const findTheIndex = (arry, input) => {
+    if (typeof input === "object") {
+      for (let i = 0; i < arry.length; i++) {
+        if (arry[i] === input) {
+          return i
+        }
+      }
+    }
+    if (!(Node.validAddresses([input]) === -1)) {
+      return input
+    }
+    return -1
+  }
+
+  const validAddresses = (arry) => {
+    for (let el of arry) {
+      if (typeof el === "string") {
+        return -1
+      }
+      if ((el < 0) || !(el < diskSize)) {
+        return -1
+      }
+    }
+    return arry
+  }
+
+// PUBLIC:
+
   return class Node {
     constructor(data, children = [], parent = null) {
-      const address = Node.findSpace()
+      const address = findSpace()
       if (address === -1) {
         console.error("ERROR: Disk Full!!!")
       } else {
@@ -14,47 +55,12 @@ const Node = (function Node() {
       }
     }
 
-    static findSpace () {
-      for (let i = 0; i < hardDisk.length; i++){
-        if (hardDisk[i] === null){
-          return i
-        }
-      }
-      return -1
-    }
-
     static hardDrive () {
       return hardDisk
     }
 
-    static findTheIndex (arry, input) {
-      if (typeof input === "object") {
-        for (let i = 0; i < arry.length; i++) {
-          if (arry[i] === input) {
-            return i
-          }
-        }
-      }
-      if (!(Node.validAddresses([input]) === -1)) {
-        return input
-      }
-      return -1
-    }
-
-    static validAddresses (arry) {
-      for (let el of arry) {
-        if (typeof el === "string") {
-          return -1
-        }
-        if ((el < 0) || !(el < diskSize)) {
-          return -1
-        }
-      }
-      return arry
-    }
-
     destroy () {
-      const address = Node.findTheIndex(hardDisk, this)
+      const address = findTheIndex(hardDisk, this)
       if (address === -1) {
         console.error("ERROR: Node Not Found!!!")
       } else {
@@ -69,7 +75,7 @@ const Node = (function Node() {
           this.data = changes.data
         }
         if (changes.children) {
-          const newChild = Node.validAddresses(changes.children)
+          const newChild = validAddresses(changes.children)
           if (newChild === -1) {
             console.error("ERROR: Invalid Children Values!!!");
           } else {
@@ -77,7 +83,7 @@ const Node = (function Node() {
           }
         }
         if (changes.parent) {
-          const newParent = Node.validAddresses([changes.parent])
+          const newParent = validAddresses([changes.parent])
           if (newParent === -1) {
             console.error("ERROR: Invalid Parent Value!!!");
           } else {
@@ -94,10 +100,11 @@ const Node = (function Node() {
 })()
 
 // Example Code:
-// 
+//
 // let newNode
 // for (let i = 0; i < 50; i++) {
 //   newNode = new Node()
+//
 //   if((i % 5) === 0) {
 //     newNode.update({
 //       data : "steve",
@@ -110,4 +117,6 @@ const Node = (function Node() {
 //     newNode.destroy()
 //     newNode = null
 //   }
+//
+//   console.log(newNode)
 // }
