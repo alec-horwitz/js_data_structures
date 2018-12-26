@@ -1,4 +1,4 @@
-const Node = (function Node() {
+export const Node = (function Node() {
 
 // PRIVATE:
 
@@ -55,7 +55,7 @@ const Node = (function Node() {
       }
     }
 
-    static hardDrive () {
+    static getDisk () {
       return hardDisk
     }
 
@@ -63,10 +63,11 @@ const Node = (function Node() {
       const address = findTheIndex(hardDisk, this)
       if (address === -1) {
         console.error("ERROR: Node Not Found!!!")
+        return this
       } else {
         hardDisk[address] = null
+        return null
       }
-      return this
     }
 
     update (changes) {
@@ -95,6 +96,7 @@ const Node = (function Node() {
           }
         }
       }
+      return this
     }
   }
 })()
@@ -120,3 +122,4 @@ const Node = (function Node() {
 //
 //   console.log(newNode)
 // }
+// console.log(Node.getDisk())
