@@ -1,4 +1,4 @@
-export const Node = (function Node() {
+const Node = (function Node() {
 
 // PRIVATE:
 
@@ -105,7 +105,7 @@ export const Node = (function Node() {
 //
 // let newNode
 // for (let i = 0; i < 50; i++) {
-//   newNode = newNode = new Node()
+//   newNode = new Node()
 //
 //   if((i % 5) === 0) {
 //     newNode = newNode.update({
