@@ -105,10 +105,10 @@ export const Node = (function Node() {
 //
 // let newNode
 // for (let i = 0; i < 50; i++) {
-//   newNode = new Node()
+//   newNode = newNode = new Node()
 //
 //   if((i % 5) === 0) {
-//     newNode.update({
+//     newNode = newNode.update({
 //       data : "steve",
 //       children : [2,249,0,23],
 //       parent : 6
@@ -116,8 +116,7 @@ export const Node = (function Node() {
 //   }
 //
 //   if((i % 3) === 0) {
-//     newNode.destroy()
-//     newNode = null
+//     newNode = newNode.destroy()
 //   }
 //
 //   console.log(newNode)
