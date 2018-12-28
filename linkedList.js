@@ -59,8 +59,8 @@ module.exports = LinkedList
 
 // Example Code:
 //
-let newLinkedList
-newLinkedList = new LinkedList()
-console.log("Testing getDisk", LinkedList.getDisk().indexOf(newLinkedList))
-newLinkedList.addNode()
-console.log(newLinkedList)
+// let newLinkedList
+// newLinkedList = new LinkedList()
+// console.log("Testing getDisk", LinkedList.getDisk().indexOf(newLinkedList))
+// newLinkedList.addNode()
+// console.log(newLinkedList)
