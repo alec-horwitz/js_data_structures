@@ -101,6 +101,8 @@ const Node = (function Node() {
   }
 })()
 
+module.exports = Node
+
 // Example Code:
 //
 // let newNode

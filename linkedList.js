@@ -9,7 +9,7 @@ const LinkedList = (function LinkedList() {
 
   return class LinkedList extends Node {
     constructor(data, children = [], parent = null) {
-      super(data, [...child], parent)
+      super(data, [...children], parent)
       lists.push(this)
     }
 
@@ -27,10 +27,9 @@ const LinkedList = (function LinkedList() {
     }
 
     lastNode () {
-      let currentNode = this
-      let lastNode = this.next()
-      while (currentNode !== lastNode) {
-        currentNode = lastNode
+      let lastNode = this
+      while (typeof lastNode.next() !== "undefined") {
+        console.log(lastNode.next());
         lastNode = lastNode.next()
       }
       return lastNode
@@ -38,8 +37,8 @@ const LinkedList = (function LinkedList() {
 
     addNode (data = null) {
       let lastN = this.lastNode()
-      let newNode = new linkedList(data, [], LinkedList.getDisk.indexOf(lastN))
-      lastN.children.push(LinkedList.getDisk.indexOf(newNode))
+      let newNode = new LinkedList(data, [], LinkedList.getDisk().indexOf(lastN))
+      lastN.children.push(LinkedList.getDisk().indexOf(newNode))
     }
 
     previous () {
@@ -60,6 +59,6 @@ const LinkedList = (function LinkedList() {
 //
 let newLinkedList
 newLinkedList = new LinkedList()
-console.log("Testing getDisk", LinkedList.getDisk.indexOf(newLinkedList))
+console.log("Testing getDisk", LinkedList.getDisk().indexOf(newLinkedList))
 newLinkedList.addNode()
 console.log(newLinkedList)
