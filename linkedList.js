@@ -55,6 +55,8 @@ const LinkedList = (function LinkedList() {
   }
 })()
 
+module.exports = LinkedList
+
 // Example Code:
 //
 let newLinkedList
