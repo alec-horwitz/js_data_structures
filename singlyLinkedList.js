@@ -7,9 +7,13 @@ const SinglyLinkedList = (function SinglyLinkedList(){
       super(data, child)
       singlyLists.push(this)
     }
-  static getSinglyLists (){
+    static getSinglyLists (){
     return singlyLists
+    }
   }
+  previous (){
+    console.warn("This function is not supported for Singly Linked Lists.")
+    return null
   }
 })()
 
