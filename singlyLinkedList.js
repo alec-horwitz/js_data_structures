@@ -11,9 +11,14 @@ const SinglyLinkedList = (function SinglyLinkedList(){
     return singlyLists
     }
   }
-  previous (){
+  previous() {
     console.warn("This function is not supported for Singly Linked Lists.")
     return null
+  }
+  addNode() {
+    lastN = SinglyLinkedList.lastNode()
+    let newNode = new SinglyLinkedList(data, [])
+    lastN.children.push(SinglyLinkedList.getDisk().indexOf(newNode))
   }
 })()
 
