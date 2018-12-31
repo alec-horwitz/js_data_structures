@@ -22,9 +22,9 @@ const SinglyLinkedList = (function SinglyLinkedList(){
   }
 })()
 
-let newSinglyLinkedList
-newSinglyLinkedList = new SinglyLinkedList()
-console.log("Testing getDisk", SinglyLinkedList.getDisk().indexOf(newSinglyLinkedList))
-newSinglyLinkedList.addNode()
-console.log("Testing getLists", SinglyLinkedList.getLists().indexOf(newSinglyLinkedList))
-console.log("Testing getSinglyLists", SinglyLinkedList.getSinglyLists().indexOf(newSinglyLinkedList))
+// let newSinglyLinkedList
+// newSinglyLinkedList = new SinglyLinkedList()
+// console.log("Testing getDisk", SinglyLinkedList.getDisk().indexOf(newSinglyLinkedList))
+// newSinglyLinkedList.addNode()
+// console.log("Testing getLists", SinglyLinkedList.getLists().indexOf(newSinglyLinkedList))
+// console.log("Testing getSinglyLists", SinglyLinkedList.getSinglyLists().indexOf(newSinglyLinkedList))
