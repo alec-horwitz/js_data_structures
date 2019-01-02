@@ -36,9 +36,9 @@ const LinkedList = (function LinkedList() {
     }
 
     addNode (data = null) {
-      let lastN = this.lastNode()
-      let newNode = new LinkedList(data, [], LinkedList.getDisk().indexOf(lastN))
-      lastN.children.push(LinkedList.getDisk().indexOf(newNode))
+      // let lastN = this.lastNode()
+      let newNode = new LinkedList(data, [], LinkedList.getDisk().indexOf(this))
+      this.children.push(LinkedList.getDisk().indexOf(newNode))
     }
 
     previous () {
