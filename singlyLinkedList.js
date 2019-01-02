@@ -7,17 +7,18 @@ const SinglyLinkedList = (function SinglyLinkedList(){
       super(data, child)
       singlyLists.push(this)
     }
-    static getLists (){
-      return singlyLists
+    static getSinglyLists (){
+    return singlyLists
     }
   }
-  previous(data = null, child = null) {
+  previous() {
     console.warn("This function is not supported for Singly Linked Lists.")
     return null
   }
-  appendNode(data = null, children = []) {
+  addNode() {
     lastN = SinglyLinkedList.lastNode()
-    lastN.addNode(data, children)
+    let newNode = new SinglyLinkedList(data, [])
+    lastN.children.push(SinglyLinkedList.getDisk().indexOf(newNode))
   }
 })()
 
