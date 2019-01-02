@@ -18,7 +18,7 @@ const LinkedList = (function LinkedList() {
     }
 
     next (i=0) {
-      if (this.children[i] !== null) {
+      if (this.children[i] !== "undefined") {
         return LinkedList.getDisk[this.children[i]]
       } else {
         console.warn(`Child at index ${i} does not exist!`)
@@ -26,18 +26,21 @@ const LinkedList = (function LinkedList() {
       }
     }
 
-    lastNode () {
+    lastNode (i=0) {
       let lastNode = this
-      while (typeof lastNode.next() !== "undefined") {
-        console.log(lastNode.next());
-        lastNode = lastNode.next()
+      while (typeof lastNode.next(i) !== "undefined") {
+        console.log(lastNode.next(i));
+        lastNode = lastNode.next(i)
       }
       return lastNode
     }
 
-    addNode (data = null) {
-      // let lastN = this.lastNode()
-      let newNode = new LinkedList(data, [], LinkedList.getDisk().indexOf(this))
+    addNode (data = null, children = [], parent = null) {
+      let nodeParent = null
+      if (parent !== null) {
+        nodeParent = LinkedList.getDisk().indexOf(this)
+      }
+      let newNode = new LinkedList(data, children, nodeParent)
       this.children.push(LinkedList.getDisk().indexOf(newNode))
     }
 
